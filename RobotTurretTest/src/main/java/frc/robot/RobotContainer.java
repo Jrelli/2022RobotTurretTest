@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.Command;
  * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
  * (including subsystems, commands, and button mappings) should be declared here.
  */
-public class RobotContainer {
+public class RobotContainer{
   private static RobotContainer m_robotContainer = new RobotContainer();
   // The robot's subsystems
   public final turretLaunch m_turretLaunch = new turretLaunch();
@@ -29,7 +29,7 @@ public class RobotContainer {
   public final turretAim m_turretAim = new turretAim();
   public final swerveDrive m_swerveDrive = new swerveDrive();
 
-    /**
+  /**
    * Instantiate inline commands before OI because OI requires commands before binding to buttons
    * Inline commands requires OI when retrieving joystick values. 
    */
@@ -40,15 +40,14 @@ public class RobotContainer {
   private final SendableChooser<String> m_autoChooser = new SendableChooser<>();
 
   //This code runs at robotInit.
-  public RobotContainer() 
-  {
-    /* Bind commands to joystick buttons */
+  public RobotContainer(){
+    // Bind commands to joystick buttons
     m_OI.configureButtonBindings();
 
-    /* Initialize various systems on robotInit. */
+    // Initialize various systems on robotInit
     this.initializeStartup();
 
-    /* Initialize autonomous command chooser & display on the SmartDashboard. */
+    // Initialize autonomous command chooser & display on the SmartDashboard
     this.initializeAutoChooser();
   }
 
@@ -57,8 +56,7 @@ public class RobotContainer {
    * robotInit() in Robot.java because subsystems may not be instantiated at that
    * point.
    */
-  private void initializeStartup()
-  {
+  private void initializeStartup(){
     /* Turn off Limelight LED when first started up */
     m_limelight.turnOffLED();
   }
@@ -68,9 +66,8 @@ public class RobotContainer {
    * automatically whenever a subsystem is not being used by another command. If
    * default command is set to null, there will be no default command for the subsystem.
    */
-  public static void initializeDefaultCommands()
-  {
-    m_chassis.setDefaultCommand(m_inlineCommands.m_driveWithJoystick);
+  public static void initializeDefaultCommands(){
+    m_swerveDrive.setDefaultCommand(m_inlineCommands.m_driveWithJoystick);
     // m_swerveChassis.setDefaultCommand(m_inlineCommands.m_driveWithJoystick);
   }
 
@@ -80,14 +77,13 @@ public class RobotContainer {
    * Using string chooser rather than command chooser because if using a command chooser, 
    * will instantiate all the autonomous commands. May cause mix ups between commands.
    */
-  private void initializeAutoChooser()
-  {
-    /* Add options (which autonomous commands can be selected) to chooser. */
+  private void initializeAutoChooser(){
+    // Add options (which autonomous commands can be selected) to chooser
     m_autoChooser.setDefaultOption("DEFAULT COMMAND NAME HERE", "default");
     m_autoChooser.addOption("ONE BALL", "one_Ball");
     m_autoChooser.addOption("ONE BALL RIGHT", "one_Ball_Right");
 
-    /* Display chooser on SmartDashboard */
+    // Display chooser on SmartDashboard
     SmartDashboard.putData("Autonomous Command", m_autoChooser);
   }
 
@@ -96,16 +92,10 @@ public class RobotContainer {
    * Add new case for new command path
    * @return the command to run during the autonomous period.
    */
-  public Command getAutonomousCommand()
-  {
-    switch (m_autoChooser.getSelected())
-    {
+  public Command getAutonomousCommand(){
+    switch(m_autoChooser.getSelected()){
       case "default":
-        return new AutonomousOneBall();
-      case "one_Ball":
-        return new AutonomousOneBall();
-      case "one_Ball_Right":
-        return new AutonomousRight();
+        return new AutonomousCommand();
       default:
         System.out.println("\nError selecting autonomous command:\nCommand selected: " + m_autoChooser.getSelected() + "\n");
         return null;
@@ -118,10 +108,8 @@ public class RobotContainer {
    *                    without Motion Magic. (Motion Magic not required for
    *                    TalonSRXs that will set with ControlMode.Velocity).
    */
-  public static void configureTalonSRX(WPI_TalonSRX talonSRX, boolean controlMode, FeedbackDevice feedbackDevice,
-    boolean setInverted, boolean setSensorPhase, double kF, double kP, double kI, double kD, int kCruiseVelocity,
-    int kAcceleration, boolean resetPos)
-  {
+  public static void configureTalonSRX(WPI_TalonSRX talonSRX, boolean controlMode, FeedbackDevice feedbackDevice, boolean setInverted, 
+  boolean setSensorPhase, double kF, double kP, double kI, double kD, int kCruiseVelocity, int kAcceleration, boolean resetPos){
     /* Reset TalonSRX to prevent unexpected behavior. */
     talonSRX.configFactoryDefault();
 
@@ -135,8 +123,7 @@ public class RobotContainer {
     talonSRX.setSensorPhase(setSensorPhase);
 
     // Determine if the internal PID is being used
-    if (controlMode)
-    {
+    if (controlMode){
       /* Set relevant frame periods (Base_PIDF0 and MotionMagic) to periodic rate (10ms). */
       talonSRX.setStatusFramePeriod(StatusFrameEnhanced.Status_13_Base_PIDF0, 10, Constants.K_TIMEOUT_MS);
       talonSRX.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, Constants.K_TIMEOUT_MS);
@@ -161,8 +148,7 @@ public class RobotContainer {
     talonSRX.config_kD(Constants.K_SLOT_IDX, kD, Constants.K_TIMEOUT_MS);
 
     // Determine if the internal PID is being used
-    if (controlMode)
-    {
+    if (controlMode){
       /* Set acceleration and cruise velocity for Motion Magic. */
       talonSRX.configMotionCruiseVelocity(kCruiseVelocity, Constants.K_TIMEOUT_MS);
       talonSRX.configMotionAcceleration(kAcceleration, Constants.K_TIMEOUT_MS);
@@ -179,9 +165,7 @@ public class RobotContainer {
    * Motion Magic not required for launch/chassis TalonFXs due to 
    * having PIDController with Gyro/Vision or ControlMode.Velocity
    */
-  public static void configureTalonFX(WPI_TalonFX talonFX, boolean setInverted, boolean setSensorPhase, double kF,
-    double kP, double kI, double kD) 
-  {
+  public static void configureTalonFX(WPI_TalonFX talonFX, boolean setInverted, boolean setSensorPhase, double kF, double kP, double kI, double kD){
     /* Factory default to reset TalonFX and prevent unexpected behavior. */
     talonFX.configFactoryDefault();
 
@@ -223,8 +207,7 @@ public class RobotContainer {
    * Method to display position, velocity, error, and motor ouput of a TalonSRX.
    * Primarily used for PID tuning.
    */
-  public static void displayTalonSRXInfo(WPI_TalonSRX talonSRX, String label)
-  {
+  public static void displayTalonSRXInfo(WPI_TalonSRX talonSRX, String label){
     SmartDashboard.putNumber(label + " Setpoint", talonSRX.getClosedLoopTarget());
     SmartDashboard.putNumber(label + " Position", talonSRX.getSelectedSensorPosition());
     SmartDashboard.putNumber(label + " Velocity", talonSRX.getSelectedSensorVelocity());
@@ -236,8 +219,7 @@ public class RobotContainer {
    * Method to display position, velocity, error, and motor ouput of a TalonFX.
    * Primarily used for PID tuning.
    */
-  public static void displayTalonFXInfo(WPI_TalonFX talonFX, String label)
-  {
+  public static void displayTalonFXInfo(WPI_TalonFX talonFX, String label){
     SmartDashboard.putNumber(label + " Setpoint", talonFX.getClosedLoopTarget());
     SmartDashboard.putNumber(label + " Position", talonFX.getSelectedSensorPosition());
     SmartDashboard.putNumber(label + " Position Graph", talonFX.getSelectedSensorPosition());
@@ -251,8 +233,7 @@ public class RobotContainer {
    * @param rpm is desired revolutions per minute.
    * @param tpr is the encoder ticks per revolution.
    */
-  public static double convertRPMToVelocity(int rpm, int tpr)
-  {
+  public static double convertRPMToVelocity(int rpm, int tpr){
     /* (RPM * TPR Units/Revolution / 600 ms/min) */
     return rpm * tpr / 600;
   }

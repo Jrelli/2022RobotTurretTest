@@ -60,7 +60,7 @@ public class LEDS extends SubsystemBase{
         if(m_isLaunching){
             // this.windUp(true);
         }else if (m_periodicIteration >= 3 && m_isDefending){
-            // this.defenseMode();
+            //this.defenseMode();
             m_periodicIteration = 0;
         }else if (m_isDefending == false){
             this.neutral();
@@ -72,19 +72,22 @@ public class LEDS extends SubsystemBase{
     public void resetSequences(){
         m_isLaunching = false;
     }
-    // public void defenseModeLEDs()
-    // {
-    //   if(m_defenseLEDs){
-    //     for(int i = 0; i < Constants.TOTAL_LEDS; i++){
-    //       m_LEDLength.setRGB(i, 255, 0, 0);}
-    //     m_defenseLEDs = true;
-    //   }
-    //   else{
-    //     for(int i = 0; i < Constants.TOTAL_LEDS; i++){
-    //       m_LEDLength.setRGB(i, 0, 0, 0);}
-    //     m_defenseLEDs = false;
-    //   }
-    // }
+
+    public void defenseModeLEDs(){ 
+        if(m_defenseLEDs){ 
+            for(int i = 0; i < Constants.TOTAL_LEDS_COUNT; i++){ 
+                m_LEDLength.setRGB(i, 255, 0, 0); 
+            } 
+            m_launcherLEDs.setData(m_LEDLength); 
+            m_defenseLEDs = true; 
+        }else{ 
+            for(int i = 0; i < Constants.TOTAL_LEDS_COUNT; i++){ 
+                m_LEDLength.setRGB(i, 0, 0, 0); 
+            } 
+            m_launcherLEDs.setData(m_LEDLength); 
+            m_defenseLEDs = false; 
+        } 
+    }
 
     private void neutral(){
         //Set swirl LEDs color

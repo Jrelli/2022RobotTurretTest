@@ -63,7 +63,7 @@ public class InlineCommands {
         */
 
         // SwerveDrive
-        m_driveWithJoystick   = new RunCommand(() -> RobotContainer.m_chassis.convertSwerveValues(RobotContainer.m_OI.getDriverJoystick().getRawAxis(0), 
+        m_driveWithJoystick   = new RunCommand(() -> RobotContainer.m_swerveDrive.convertSwerveValues(RobotContainer.m_OI.getDriverJoystick().getRawAxis(0), 
             RobotContainer.m_OI.getDriverJoystick().getRawAxis(1), RobotContainer.m_OI.getDriverJoystick().getRawAxis(4)), RobotContainer.m_swerveDrive);
     
         // Climb

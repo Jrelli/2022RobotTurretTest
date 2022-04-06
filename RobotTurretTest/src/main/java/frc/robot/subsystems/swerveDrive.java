@@ -59,22 +59,22 @@ public class swerveDrive extends SubsystemBase{
 
         //Configure drivetrain motors
         m_angleMotorFrontRight = new WPI_TalonFX(Constants.FRONT_RIGHT_ANGLE_MOTOR_ID);
-        RobotContainer.configureTalonFX(m_angleMotorFrontRight, false, false, 0.0, Constants.K_CHASSIS_RIGHT_ANGLE_P, Constants.K_CHASSIS_RIGHT_ANGLE_I, Constants.K_CHASSIS_RIGHT_ANGLE_D);
+        RobotContainer.configureTalonFX(m_angleMotorFrontRight, false, false, 0.0, Constants.K_SWERVE_RIGHT_ANGLE_P, Constants.K_SWERVE_RIGHT_ANGLE_I, Constants.K_SWERVE_RIGHT_ANGLE_D);
         m_speedMotorFrontRight = new WPI_TalonFX(Constants.FRONT_RIGHT_SPEED_MOTOR_ID);
         RobotContainer.configureTalonFX(m_speedMotorFrontRight, false, false, 0.0, 0.0, 0.0, 0.0);
 
         m_angleMotorFrontLeft = new WPI_TalonFX(Constants.FRONT_LEFT_ANGLE_MOTOR_ID);
-        RobotContainer.configureTalonFX(m_angleMotorFrontLeft, false, false, 0.0, Constants.K_CHASSIS_LEFT_ANGLE_P, Constants.K_CHASSIS_LEFT_ANGLE_I, Constants.K_CHASSIS_LEFT_ANGLE_D);
+        RobotContainer.configureTalonFX(m_angleMotorFrontLeft, false, false, 0.0, Constants.K_SWERVE_LEFT_ANGLE_P, Constants.K_SWERVE_LEFT_ANGLE_I, Constants.K_SWERVE_LEFT_ANGLE_D);
         m_speedMotorFrontLeft = new WPI_TalonFX(Constants.FRONT_LEFT_SPEED_MOTOR_ID);
         RobotContainer.configureTalonFX(m_speedMotorFrontLeft, false, false, 0.0, 0.0, 0.0, 0.0);
         
         m_angleMotorBackLeft = new WPI_TalonFX(Constants.BACK_LEFT_ANGLE_MOTOR_ID);
-        RobotContainer.configureTalonFX(m_angleMotorBackLeft, false, false, 0.0, Constants.K_CHASSIS_LEFT_ANGLE_P, Constants.K_CHASSIS_LEFT_ANGLE_I, Constants.K_CHASSIS_LEFT_ANGLE_D);
+        RobotContainer.configureTalonFX(m_angleMotorBackLeft, false, false, 0.0, Constants.K_SWERVE_LEFT_ANGLE_P, Constants.K_SWERVE_LEFT_ANGLE_I, Constants.K_SWERVE_LEFT_ANGLE_D);
         m_speedMotorBackLeft = new WPI_TalonFX(Constants.BACK_LEFT_SPEED_MOTOR_ID);
         RobotContainer.configureTalonFX(m_speedMotorBackLeft, false, false, 0.0, 0.0, 0.0, 0.0);
 
         m_angleMotorBackRight = new WPI_TalonFX(Constants.BACK_RIGHT_ANGLE_MOTOR_ID);
-        RobotContainer.configureTalonFX(m_angleMotorBackRight, false, false, 0.0, Constants.K_CHASSIS_RIGHT_ANGLE_P, Constants.K_CHASSIS_RIGHT_ANGLE_I, Constants.K_CHASSIS_RIGHT_ANGLE_D);
+        RobotContainer.configureTalonFX(m_angleMotorBackRight, false, false, 0.0, Constants.K_SWERVE_RIGHT_ANGLE_P, Constants.K_SWERVE_RIGHT_ANGLE_I, Constants.K_SWERVE_RIGHT_ANGLE_D);
         m_speedMotorBackRight = new WPI_TalonFX(Constants.BACK_RIGHT_SPEED_MOTOR_ID);
         RobotContainer.configureTalonFX(m_speedMotorBackRight, false, false, 0.0, 0.0, 0.0, 0.0);
     }

@@ -12,7 +12,7 @@ public class Constants
   ██       ██████  ██   ██    ██        ██ ██████      ███████ 
   */
 
-  // Chassis
+  // Swerve
   public static final int FRONT_RIGHT_ANGLE_MOTOR_ID                      = 2;
   public static final int FRONT_RIGHT_SPEED_MOTOR_ID                      = 3;
 
@@ -40,7 +40,7 @@ public class Constants
   // Turret
   public static final int TURRET_LAUNCH_ID                                = 5;
   public static final int TURRET_ACCEL_ID                                 = 6;
-  public static final int TURRET_INDEX_TOP_ID                             = 21;
+  public static final int TURRET_INDEX_ID                                 = 21;
   public static final int TURRET_ROTATION_ID                              = 19;
 
   /*
@@ -58,26 +58,26 @@ public class Constants
     ████   ██   ██ ███████  ██████  ███████ ███████ 
   */
 
-  // Chassis
-  public static final double CHASSIS_MAX_POWER                            = 0.7;
-  public static final double K_CHASSIS_TURN_P                             = 0;
-  public static final double K_CHASSIS_TURN_I                             = 0;
-  public static final double K_CHASSIS_TURN_D                             = 0;
+  // Swerve
+  public static final double SWERVE_MAX_POWER                            = 0.7;
+  public static final double K_SWERVE_TURN_P                             = 0;
+  public static final double K_SWERVE_TURN_I                             = 0;
+  public static final double K_SWERVE_TURN_D                             = 0;
 
   public static final double K_TURN_TOLERANCE_DEG                         = 0;
   public static final double K_TURN_RATE_TOLERANCE_DEG_PER_SEC            = 0;
 
-  public static final double K_CHASSIS_TURN_VISION_P                      = 0.02;
-  public static final double K_CHASSIS_TURN_VISION_MIN                    = 0.1;
-  public static final double CHASSIS_TURN_ERROR_THRESHOLD                 = 0.5;
+  public static final double K_SWERVE_TURN_VISION_P                      = 0.02;
+  public static final double K_SWERVE_TURN_VISION_MIN                    = 0.1;
+  public static final double SWERVE_TURN_ERROR_THRESHOLD                 = 0.5;
   
-  public static final double K_CHASSIS_LEFT_ANGLE_P                       = 0.2245;     //previous: 0.225
-  public static final double K_CHASSIS_LEFT_ANGLE_I                       = 0.0000185;  //previous: 0.0002
-  public static final double K_CHASSIS_LEFT_ANGLE_D                       = 0.000001;   //previous: 0.0000001
+  public static final double K_SWERVE_LEFT_ANGLE_P                       = 0.2245;     //previous: 0.225
+  public static final double K_SWERVE_LEFT_ANGLE_I                       = 0.0000185;  //previous: 0.0002
+  public static final double K_SWERVE_LEFT_ANGLE_D                       = 0.000001;   //previous: 0.0000001
 
-  public static final double K_CHASSIS_RIGHT_ANGLE_P                      = 0.2245;    //previous: 0.225
-  public static final double K_CHASSIS_RIGHT_ANGLE_I                      = 0.0000185; //previous: 0.0002
-  public static final double K_CHASSIS_RIGHT_ANGLE_D                      = 0.000003;  //previous: 0.000005
+  public static final double K_SWERVE_RIGHT_ANGLE_P                      = 0.2245;    //previous: 0.225
+  public static final double K_SWERVE_RIGHT_ANGLE_I                      = 0.0000185; //previous: 0.0002
+  public static final double K_SWERVE_RIGHT_ANGLE_D                      = 0.000003;  //previous: 0.000005
 
   // Climber
   public static final double CLIMB_POWER                                  = -0.67;
@@ -193,7 +193,7 @@ public class Constants
  
   public static final int K_ABSOLUTE_ENCODER_UPR                          = 4096; //units per rotation
 
-  // Chassis Specs
+  // Swerve Specs
   public static final Translation2d BACK_LEFT_WHEEL_LOCATION              = new Translation2d(-12.5 , 10.75);
   public static final Translation2d BACK_RIGHT_WHEEL_LOCATION             = new Translation2d(-12.5 , -10.75);
   public static final Translation2d FRONT_LEFT_WHEEL_LOCATION             = new Translation2d(12.5 , 10.75);        

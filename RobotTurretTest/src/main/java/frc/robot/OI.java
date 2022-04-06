@@ -28,7 +28,7 @@ public class OI {
 
         // Intake
         m_intakeBtn            = new JoystickButton(m_operatorJoystick, Constants.INTAKE_BTN_ID);
-        m_reverseIntakeBtn     = new JoystickButton(m_operatorJoystick, Constants.REVERSE_INTAKE_BTN_ID)
+        m_reverseIntakeBtn     = new JoystickButton(m_operatorJoystick, Constants.REVERSE_INTAKE_BTN_ID);
 
         // Turret
         m_launchSequenceBtn    = new JoystickButton(m_operatorJoystick, Constants.LAUNCH_BTN_ID);

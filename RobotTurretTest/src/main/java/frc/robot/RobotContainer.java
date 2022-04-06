@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj2.command.Command;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer{
-  private static RobotContainer m_robotContainer = new RobotContainer();
   // The robot's subsystems
   public final turretLaunch m_turretLaunch = new turretLaunch();
   public final Limelight m_limelight = new Limelight();
@@ -67,8 +66,7 @@ public class RobotContainer{
    * default command is set to null, there will be no default command for the subsystem.
    */
   public static void initializeDefaultCommands(){
-    m_swerveDrive.setDefaultCommand(m_inlineCommands.m_driveWithJoystick);
-    // m_swerveChassis.setDefaultCommand(m_inlineCommands.m_driveWithJoystick);
+    //m_swerveDrive.setDefaultCommand(m_inlineCommands.m_driveWithJoystick);
   }
 
   /**

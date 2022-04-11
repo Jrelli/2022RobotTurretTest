@@ -42,6 +42,7 @@ public class Constants
   public static final int TURRET_ACCEL_ID                                 = 6;
   public static final int TURRET_INDEX_ID                                 = 21;
   public static final int TURRET_ROTATION_ID                              = 19;
+  public static final int TURRET_CANCODER_ID                              = 0;
 
   /*
   ███████ ██    ██ ██████  ███████ ██    ██ ███████ ████████ ███████ ███    ███ 
@@ -59,25 +60,25 @@ public class Constants
   */
 
   // Swerve
-  public static final double SWERVE_MAX_POWER                            = 0.7;
-  public static final double K_SWERVE_TURN_P                             = 0;
-  public static final double K_SWERVE_TURN_I                             = 0;
-  public static final double K_SWERVE_TURN_D                             = 0;
+  public static final double CHASSIS_MAX_POWER                            = 0.7;
+  public static final double K_CHASSIS_TURN_P                             = 0;
+  public static final double K_CHASSIS_TURN_I                             = 0;
+  public static final double K_CHASSIS_TURN_D                             = 0;
 
   public static final double K_TURN_TOLERANCE_DEG                         = 0;
   public static final double K_TURN_RATE_TOLERANCE_DEG_PER_SEC            = 0;
 
-  public static final double K_SWERVE_TURN_VISION_P                      = 0.02;
-  public static final double K_SWERVE_TURN_VISION_MIN                    = 0.1;
-  public static final double SWERVE_TURN_ERROR_THRESHOLD                 = 0.5;
+  public static final double K_CHASSIS_TURN_VISION_P                      = 0.02;
+  public static final double K_CHASSIS_TURN_VISION_MIN                    = 0.1;
+  public static final double CHASSIS_TURN_ERROR_THRESHOLD                 = 0.5;
   
-  public static final double K_SWERVE_LEFT_ANGLE_P                       = 0.2245;     //previous: 0.225
-  public static final double K_SWERVE_LEFT_ANGLE_I                       = 0.0000185;  //previous: 0.0002
-  public static final double K_SWERVE_LEFT_ANGLE_D                       = 0.000001;   //previous: 0.0000001
+  public static final double K_CHASSIS_LEFT_ANGLE_P                       = 0.2245;     //previous: 0.225
+  public static final double K_CHASSIS_LEFT_ANGLE_I                       = 0.0000185;  //previous: 0.0002
+  public static final double K_CHASSIS_LEFT_ANGLE_D                       = 0.000001;   //previous: 0.0000001
 
-  public static final double K_SWERVE_RIGHT_ANGLE_P                      = 0.2245;    //previous: 0.225
-  public static final double K_SWERVE_RIGHT_ANGLE_I                      = 0.0000185; //previous: 0.0002
-  public static final double K_SWERVE_RIGHT_ANGLE_D                      = 0.000003;  //previous: 0.000005
+  public static final double K_CHASSIS_RIGHT_ANGLE_P                      = 0.2245;    //previous: 0.225
+  public static final double K_CHASSIS_RIGHT_ANGLE_I                      = 0.0000185; //previous: 0.0002
+  public static final double K_CHASSIS_RIGHT_ANGLE_D                      = 0.000003;  //previous: 0.000005
 
   // Climber
   public static final double CLIMB_POWER                                  = -0.67;

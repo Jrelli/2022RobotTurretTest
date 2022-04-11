@@ -20,13 +20,10 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer{
   // The robot's subsystems
-  public final turretLaunch m_turretLaunch = new turretLaunch();
-  public final Limelight m_limelight = new Limelight();
-  public final LEDS m_lEDS = new LEDS();
-  public final intake m_intake = new intake();
-  public final climb m_climb = new climb();
-  public final turretAim m_turretAim = new turretAim();
-  public final swerveDrive m_swerveDrive = new swerveDrive();
+  public static final turretLauncher m_turretLauncher = new turretLauncher();
+  public static final Limelight m_limelight = new Limelight();
+  public static final turretAim m_turretAim = new turretAim();
+  public static final chassis m_chassis = new chassis();
 
   /**
    * Instantiate inline commands before OI because OI requires commands before binding to buttons

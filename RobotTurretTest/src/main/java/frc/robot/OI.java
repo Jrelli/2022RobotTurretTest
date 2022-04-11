@@ -36,22 +36,27 @@ public class OI {
     }
 
     // Get driver joystick for use in commands
-    public Joystick getDriverJoystick(){
+    public static Joystick getDriverJoystick(){
         return m_driverJoystick;
     }
+
+    public static Joystick getOperatorJoystick(){
+        return m_operatorJoystick;
+    }
+    
     // Bind commands to buttons
     public void configureButtonBindings(){
         // Climb
-        m_leftClimbBtn.whenPressed(RobotContainer.m_inlineCommands.m_moveLeftClimb);
-        m_leftClimbBtn.whenReleased(RobotContainer.m_inlineCommands.m_stopLeftClimb);
-        m_rightClimbBtn.whenPressed(RobotContainer.m_inlineCommands.m_moveRightClimb);
-        m_rightClimbBtn.whenReleased(RobotContainer.m_inlineCommands.m_stopRightClimb);
-        m_toggleClimbBtn.whenPressed(RobotContainer.m_inlineCommands.m_toggleClimb);
+        // m_leftClimbBtn.whenPressed(RobotContainer.m_inlineCommands.m_moveLeftClimb);
+        // m_leftClimbBtn.whenReleased(RobotContainer.m_inlineCommands.m_stopLeftClimb);
+        // m_rightClimbBtn.whenPressed(RobotContainer.m_inlineCommands.m_moveRightClimb);
+        // m_rightClimbBtn.whenReleased(RobotContainer.m_inlineCommands.m_stopRightClimb);
+        // m_toggleClimbBtn.whenPressed(RobotContainer.m_inlineCommands.m_toggleClimb);
 
         // Intake
-        m_intakeBtn.whenPressed(RobotContainer.m_inlineCommands.m_startIntake);
-        m_intakeBtn.whenReleased(RobotContainer.m_inlineCommands.m_stopIntake);
-        m_reverseIntakeBtn.whenPressed(RobotContainer.m_inlineCommands.m_reverseIntakeMotor);
+        // m_intakeBtn.whenPressed(RobotContainer.m_inlineCommands.m_startIntake);
+        // m_intakeBtn.whenReleased(RobotContainer.m_inlineCommands.m_stopIntake);
+        // m_reverseIntakeBtn.whenPressed(RobotContainer.m_inlineCommands.m_reverseIntakeMotor);
 
         // Turret
         m_toggleTurretLockBtn.whenPressed(RobotContainer.m_inlineCommands.m_toggleTurretLock);

@@ -25,30 +25,31 @@ public class InlineCommands {
 
     // Chassis
     public final Command m_driveWithJoystick;
-    public final Command m_turnToTarget;
 
     // Climb
-    public final Command m_moveLeftClimb;
-    public final Command m_moveRightClimb;
+    // public final Command m_moveLeftClimb;
+    // public final Command m_moveRightClimb;
 
-    public final Command m_stopLeftClimb;
-    public final Command m_stopRightClimb;
+    // public final Command m_stopLeftClimb;
+    // public final Command m_stopRightClimb;
 
-    public final Command m_toggleClimb;
+    // public final Command m_toggleClimb;
 
     // Intake
-    public final Command m_startIntake;
-    public final Command m_stopIntake;
-    public final Command m_reverseIntakeMotor;
+    // public final Command m_startIntake;
+    // public final Command m_stopIntake;
+    // public final Command m_reverseIntakeMotor;
    
     // Turret Launcher
     public final Command m_startLaunchSequence;
     public final Command m_stopLaunchSequence;
     public final Command m_startLaunchIndex;
     public final Command m_stopLaunchIndex;
+    public final Command m_toggleTurretLock;
+    //public final Command m_aimWithJoystick;
 
     // Turret Aim
-    public final Command m_toggleTurretLock;
+    //public final Command m_toggleTurretLock;
 
     /* Limelight */
     public final Command m_toggleLimelight;
@@ -63,22 +64,11 @@ public class InlineCommands {
         */
 
         // SwerveDrive
-        m_driveWithJoystick   = new RunCommand(() -> RobotContainer.m_swerveDrive.convertSwerveValues(RobotContainer.m_OI.getDriverJoystick().getRawAxis(0), 
-            RobotContainer.m_OI.getDriverJoystick().getRawAxis(1), RobotContainer.m_OI.getDriverJoystick().getRawAxis(4)), RobotContainer.m_swerveDrive);
-    
-        // Climb
-        m_moveLeftClimb       = new InstantCommand(() -> RobotContainer.m_climb.setLeftClimbPower(Constants.CLIMB_POWER));
-        m_moveRightClimb      = new InstantCommand(() -> RobotContainer.m_climb.setRightClimbPower(Constants.CLIMB_POWER));
-        m_stopLeftClimb       = new InstantCommand(() -> this.m_moveLeftClimb.cancel()).andThen(
-                                new InstantCommand(() -> RobotContainer.m_climb.setLeftClimbPower(0)));
-        m_stopRightClimb      = new InstantCommand(() -> this.m_moveRightClimb.cancel()).andThen(
-                                new InstantCommand(() -> RobotContainer.m_climb.setRightClimbPower(0)));
-        m_toggleClimb         = new InstantCommand(() -> RobotContainer.m_climb.toggleClimb());
-
-        // Intake
-        m_startIntake         = new InstantCommand(() -> RobotContainer.m_intake.setIntakeVelocity(Constants.INTAKE_WHEEL_RPM));
-        m_stopIntake          = new InstantCommand(() -> RobotContainer.m_intake.setIntakePower(0));
-        m_reverseIntakeMotor  = new InstantCommand(() -> RobotContainer.m_intake.setIntakeVelocity(-1 * Constants.INTAKE_WHEEL_RPM));
+        m_driveWithJoystick   = new RunCommand(() -> RobotContainer.m_chassis.driveWithJoystick(
+                                                     RobotContainer.m_OI.getDriverJoystick().getRawAxis(0), 
+                                                     RobotContainer.m_OI.getDriverJoystick().getRawAxis(1), 
+                                                     RobotContainer.m_OI.getDriverJoystick().getRawAxis(4), 
+                                                     false), RobotContainer.m_chassis);
 
         // Turret Launcher
         m_startLaunchSequence = new InstantCommand(() -> RobotContainer.m_turretLauncher.setLauncherVelocity(Constants.TURRET_LAUNCH_RPM)).alongWith(
@@ -88,14 +78,14 @@ public class InlineCommands {
                                 new InstantCommand(() -> RobotContainer.m_turretLauncher.setAcceleratorVelocity(0))));
         m_startLaunchIndex    = new InstantCommand(() -> RobotContainer.m_turretLauncher.setIndexPower(Constants.TURRET_INDEX_POWER));
         m_stopLaunchIndex     = new InstantCommand(() -> RobotContainer.m_turretLauncher.setIndexPower(0));
+        m_toggleTurretLock    = new TurretLock().andThen(new InstantCommand(() -> RobotContainer.m_limelight.setModeDriver()));
+
+        // m_aimWithJoystick     = new RunCommand(() -> RobotContainer.m_turretAim.aimWithJoystick(
+        //                                              RobotContainer.m_OI.getOperatorJoystick().getRawAxis(1)),
+        //                                              RobotContainer.m_turretAim);
 
         // Limelight
         m_toggleLimelight     = new InstantCommand(() -> RobotContainer.m_limelight.toggleMode());
 
-        // // LEDs
-        // m_chaseInwards       = new RunCommand(() -> RobotContainer.m_LEDs.strobeOutward()); 
-        // m_chaseOutwards      = new RunCommand(() -> RobotContainer.m_LEDs.toggleableLauncherLEDS()()); 
-        // m_rainbow            = new RunCommand(() -> RobotContainer.m_LEDs.rainbow()); 
-        // m_neutral            = new RunCommand(() -> RobotContainer.m_LEDs.neutral());
     }
 }

@@ -83,10 +83,10 @@ public class Robot extends TimedRobot{
     // SmartDashboard.putNumber("Limelight Y", RobotContainer.m_limelight.getTargetOffsetY());
     // SmartDashboard.putNumber("Limelight Area", RobotContainer.m_limelight.getTargetArea());
 
-    SmartDashboard.putNumber("Launch Current Vel", RobotContainer.m_turretLaunch.getLaunchVel());
-    SmartDashboard.putNumber("Accel Current Vel", RobotContainer.m_turretAim.getAcceleratorVel());
-    SmartDashboard.putNumber("Intake Current Vel", RobotContainer.m_intake.getIntakeVel());
-    SmartDashboard.putNumber("Intake Temp", RobotContainer.m_intake.getIntakeTemp());    
+    SmartDashboard.putNumber("Launch Current Vel", RobotContainer.m_turretLauncher.getLaunchVel());
+    SmartDashboard.putNumber("Turret Current heading (degrees)", RobotContainer.m_turretAim.getTurretRotationAngleDegrees());
+    // SmartDashboard.putNumber("Intake Current Vel", RobotContainer.m_intake.getIntakeVel());
+    // SmartDashboard.putNumber("Intake Temp", RobotContainer.m_intake.getIntakeTemp());    
   }
 
   /** This function is called once when the robot is disabled. */

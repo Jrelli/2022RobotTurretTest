@@ -34,7 +34,7 @@ public class turretAim extends SubsystemBase {
         m_canCoder.sensorCoefficient = 2 * Math.PI / 4096.0;
         m_canCoder.unitString = "rad";
         m_canCoder.sensorTimeBase = SensorTimeBase.PerSecond;
-        CharsetEncoder.configAllSettings(m_canCoder);
+        // CharsetEncoder.configAllSettings(m_canCoder);
 
         if(TurretLock.lockedTarget){
             if(angleOffset > .5){

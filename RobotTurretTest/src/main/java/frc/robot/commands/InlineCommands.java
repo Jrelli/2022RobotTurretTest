@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.RobotContainer;
 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -65,9 +66,9 @@ public class InlineCommands {
 
         // SwerveDrive
         m_driveWithJoystick   = new RunCommand(() -> RobotContainer.m_chassis.driveWithJoystick(
-                                                     RobotContainer.m_OI.getDriverJoystick().getRawAxis(0), 
-                                                     RobotContainer.m_OI.getDriverJoystick().getRawAxis(1), 
-                                                     RobotContainer.m_OI.getDriverJoystick().getRawAxis(4), 
+                                                     OI.getDriverJoystick().getRawAxis(0), 
+                                                     OI.getDriverJoystick().getRawAxis(1), 
+                                                     OI.getDriverJoystick().getRawAxis(4), 
                                                      false), RobotContainer.m_chassis);
 
         // Turret Launcher
